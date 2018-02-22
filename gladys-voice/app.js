@@ -1,4 +1,4 @@
 var voice = require('./core/voice.js');
-var request = require('./core/request.js');
+var sp = require('./core/speech-processor.js');
 
-voice.start(request);
+voice.start(sp);

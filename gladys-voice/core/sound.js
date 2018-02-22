@@ -5,6 +5,10 @@ module.exports.play = function(){
     play(config.sound);
 };
 
+module.exports.playError = function(){
+    play(config.error);
+};
+
 function play(mp3){
     var command = null;
     switch(process.platform){
