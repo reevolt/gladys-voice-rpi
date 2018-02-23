@@ -24,8 +24,10 @@ module.exports = {
     baisserStore : function() {
         var args = {
             data: [
-                { 'address': 'STORES_SEJOUR', 'value': true },
-                { 'address': 'STORES_CUISINE', 'value': true }
+                { 'address': 'STORES_SEJOUR', 'value': 100 },
+                { 'address': 'STORES_CUISINE', 'value': 100 },
+                { 'address': 'STORES_SEJOUR_LAMELLE', 'value': 70 },
+                { 'address': 'STORES_CUISINE_LAMELLE', 'value': 70 }
             ],
             headers: { "Content-Type": "application/json" }
         };
@@ -38,11 +40,15 @@ module.exports = {
                 { 'address': 'STORES_CUISINE', 'value': false },
                 { 'address': 'CUISINE_SWITCH', 'value': false },
                 { 'address': 'CUISINE_LED_SWITCH', 'value': false },
-                { 'address': 'CORNICHE_SWITCH', 'value': false },
+                { 'address': 'CORNICHE_DIMMING', 'value': 30 },
                 { 'address': 'SALLEMANGER_SWITCH', 'value': false },
                 { 'address': 'STORES_PARENTS', 'value': true },
+                { 'address': 'CORNICHE_SWITCH', 'value': false, 'delay': 15 },
             ],
-            headers: { "Content-Type": "application/json" }
+            headers: { "Content-Type": "application/json" },
+            requestConfig: {
+                timeout: 20000,
+            },
         };
         client.post("http://192.168.1.134:3000/scene", args, function(){});
     },

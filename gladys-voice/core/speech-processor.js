@@ -17,7 +17,7 @@ const actions = {
         action: act.monterStore 
     },
     baisserStore : {
-        sentence : 'baisse store',
+        sentence : 'ferme store',
         action: act.baisserStore 
     },
     bonneNuit : {
@@ -31,7 +31,7 @@ const threshold = 0.7;
 const getAction = function(sentence){
     let bestMatch = function(){
         sound.playError();
-        console.log('je ne comprend pas')
+        console.log('je ne comprend pas ' + sentence)
     };
     let bestMatchThreshold = 0;
     Object.keys(actions).forEach(function(a){

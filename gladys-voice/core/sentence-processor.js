@@ -1,4 +1,4 @@
-const pronoms = ['un', 'une', 'le', 'la', 'les', 'tu'];
+const pronoms = ['un', 'une', 'le', 'la', 'les', 'tu', 'nous', 'il'];
 
 String.prototype.replaceAll = function (find, replace) {
     var str = this;
@@ -6,8 +6,9 @@ String.prototype.replaceAll = function (find, replace) {
 };
 
 const sanitize = function(sentence){
-    let s = sentence.replaceAll('\'', ' ');
-    s = s.replaceAll(/\W*\b\w{1,2}\b/g, '');
+    let s = sentence
+        .replaceAll('\'', '')
+        .replaceAll(/\W*\b\w{1,2}\b/g, ' ');
     Object.keys(pronoms).forEach(function(i){
         const pronom = pronoms[i];
         s = s.replaceAll(pronom, '');
